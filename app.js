@@ -44,7 +44,7 @@ var app = express.createServer(function (req, res) {
 	if(requestedUri.length == 0)
 	{
 		console.log("Got request for root");
-		res.render('root', {title: 'root' });
+		res.render('root', {title: 'Welcome!' });
 	}
 	else if(requestedUri.match('stylesheets/style.css')){
 		//handle css file
@@ -137,8 +137,7 @@ var app = express.createServer(function (req, res) {
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  //app.set('view options',{layout:true});
+  app.set('view engine', 'jade');  
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
