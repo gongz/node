@@ -22,7 +22,7 @@ var reserveWord = ["aboard","about","above","across","after","against","along","
 "down","during","except","excepting","excluding","following","for","from","in","inside","into","like","minus","near",
 "of","off","on","onto","opposite","outside","over","past","per","plus","regarding","round","save","since","than","through",
 "to","toward","towards","under","underneath","unlike","until","up","upon","versus","via","with","within","without","not",
-"the","more","get","and"];
+"the","more","get","and","are","is"];
 
 var sortOrder = function(x, y) {
 	return y.count - x.count
@@ -138,7 +138,7 @@ var app = express.createServer(function (req, res) {
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.set('view options',{layout:true});
+  //app.set('view options',{layout:true});
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
