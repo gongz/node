@@ -1,0 +1,353 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'fs' ]
+info using npm@1.0.106
+info using node@v0.4.7
+verbose config file /home/user/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+silly testEngine { name: 'node-example',
+silly testEngine   version: '0.0.1',
+silly testEngine   dependencies: 
+silly testEngine    { request: '',
+silly testEngine      jsdom: '>=0.1.20',
+silly testEngine      express: '2.5.5',
+silly testEngine      jade: '>= 0.0.1',
+silly testEngine      htmlparser: '1.x',
+silly testEngine      cssom: '0.2.x',
+silly testEngine      contextify: '0.0.x',
+silly testEngine      stylus: '>= 0.0.1' },
+silly testEngine   _id: 'node-example@0.0.1',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/package.json
+verbose loadDefaults node-example@0.0.1
+silly testEngine { name: 'jade',
+silly testEngine   description: 'Jade template engine',
+silly testEngine   version: '0.20.0',
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/visionmedia/jade.git' },
+silly testEngine   main: './index.js',
+silly testEngine   bin: { jade: './bin/jade' },
+silly testEngine   dependencies: { commander: '0.2.x', mkdirp: '>= 0.0.7' },
+silly testEngine   devDependencies: 
+silly testEngine    { mocha: '*',
+silly testEngine      'coffee-script': '>= 0.0.1',
+silly testEngine      markdown: '>= 0.0.1',
+silly testEngine      stylus: '>= 0.0.1',
+silly testEngine      uubench: '0.0.1',
+silly testEngine      'uglify-js': '>= 1.0.7' },
+silly testEngine   scripts: { prepublish: 'npm prune' },
+silly testEngine   engines: { node: '>= 0.1.98' },
+silly testEngine   _id: 'jade@0.20.0',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/jade/package.json
+verbose loadDefaults jade@0.20.0
+silly testEngine { name: 'express',
+silly testEngine   description: 'Sinatra inspired web development framework',
+silly testEngine   version: '2.5.5',
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'TJ Holowaychuk',
+silly testEngine        email: 'tj@vision-media.ca' },
+silly testEngine      { name: 'Aaron Heckmann',
+silly testEngine        email: 'aaron.heckmann+github@gmail.com' },
+silly testEngine      { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly testEngine      { name: 'Guillermo Rauch', email: 'rauchg@gmail.com' } ],
+silly testEngine   dependencies: 
+silly testEngine    { connect: '1.x',
+silly testEngine      mime: '>= 0.0.1',
+silly testEngine      qs: '>= 0.3.1',
+silly testEngine      mkdirp: '0.0.7' },
+silly testEngine   devDependencies: 
+silly testEngine    { 'connect-form': '0.2.1',
+silly testEngine      ejs: '0.4.2',
+silly testEngine      expresso: '0.9.2',
+silly testEngine      hamljs: '0.5.1',
+silly testEngine      jade: '0.16.2',
+silly testEngine      stylus: '0.13.0',
+silly testEngine      should: '0.3.2',
+silly testEngine      'express-messages': '0.0.2',
+silly testEngine      'node-markdown': '>= 0.0.1',
+silly testEngine      'connect-redis': '>= 0.0.1' },
+silly testEngine   keywords: [ 'framework', 'sinatra', 'web', 'rest', 'restful' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/visionmedia/express.git' },
+silly testEngine   main: 'index',
+silly testEngine   bin: { express: './bin/express' },
+silly testEngine   scripts: { test: 'make test', prepublish: 'npm prune' },
+silly testEngine   engines: { node: '>= 0.4.1 < 0.7.0' },
+silly testEngine   _id: 'express@2.5.5',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/express/package.json
+verbose loadDefaults express@2.5.5
+silly testEngine { name: 'jsdom',
+silly testEngine   version: '0.2.10',
+silly testEngine   description: 'A javascript implementation of the W3C DOM',
+silly testEngine   keywords: [ 'dom', 'w3c', 'javascript' ],
+silly testEngine   maintainers: 
+silly testEngine    [ { name: 'Elijah Insua',
+silly testEngine        email: 'tmpvar@gmail.com',
+silly testEngine        url: 'http://tmpvar.com' } ],
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Vincent Greene',
+silly testEngine        email: 'ulteriorlife@gmail.com' },
+silly testEngine      { name: 'Dav Glass', email: 'davglass@gmail.com' },
+silly testEngine      { name: 'Felix Gnass', email: 'fgnass@gmail.com' },
+silly testEngine      { name: 'Charlie Robbins',
+silly testEngine        email: 'charlie.robbins@gmail.com' },
+silly testEngine      { name: 'Aria Stewart', email: 'aredridel@nbtsc.org' },
+silly testEngine      { name: 'Matthew',
+silly testEngine        email: 'N.A.',
+silly testEngine        url: 'http://github.com/matthewpflueger/' },
+silly testEngine      { name: 'Olivier El Mekki',
+silly testEngine        email: 'unknown',
+silly testEngine        url: 'http://blog.olivier-elmekki.com/' },
+silly testEngine      { name: 'Shimon Dookdin',
+silly testEngine        email: 'helpmepro1@gmail.com' },
+silly testEngine      { name: 'Daniel Cassidy',
+silly testEngine        email: 'mail@danielcassidy.me.uk',
+silly testEngine        url: 'http://www.danielcassidy.me.uk/' },
+silly testEngine      { name: 'Sam Ruby',
+silly testEngine        email: 'N/A',
+silly testEngine        url: 'http://intertwingly.net/blog/' },
+silly testEngine      { name: 'hij1nx', url: 'http://github.com/hij1nx' },
+silly testEngine      { name: 'Yonathan Randolph',
+silly testEngine        url: 'http://github.com/yonran' },
+silly testEngine      { name: 'Martin Davis',
+silly testEngine        url: 'http://github.com/waslogic' },
+silly testEngine      { name: 'Andreas Lind Petersen',
+silly testEngine        email: 'andreas@one.com' },
+silly testEngine      { name: 'd-ash', url: 'http://github.com/d-ash' },
+silly testEngine      { name: 'Robin Zhong', email: 'fbzhong@gmail.com' },
+silly testEngine      { name: 'Alexander Flatter',
+silly testEngine        email: 'flatter@gmail.com' },
+silly testEngine      { name: 'Heng Liu', email: 'liucougar@gmail.com' },
+silly testEngine      { name: 'Brian McDaniel',
+silly testEngine        url: 'http://github.com/brianmcd' },
+silly testEngine      { name: 'John Hurliman',
+silly testEngine        email: 'jhurliman@jhurliman.org' },
+silly testEngine      { name: 'Jimmy Mabey' },
+silly testEngine      { name: 'Gregory Tomlinson' },
+silly testEngine      { name: 'Jason Davies',
+silly testEngine        url: 'http://www.jasondavies.com/' },
+silly testEngine      { name: 'Josh Marshall',
+silly testEngine        url: 'http://www.ponderingtheobvious.com/' },
+silly testEngine      { name: 'Jason Priestley',
+silly testEngine        url: 'https://github.com/jhp' },
+silly testEngine      { name: 'Derek Lindahl',
+silly testEngine        url: 'https://github.com/dlindahl' },
+silly testEngine      { name: 'Chris Roebuck',
+silly testEngine        email: 'chris@quillu.com',
+silly testEngine        url: 'http://www.quillu.com' } ],
+silly testEngine   bugs: 
+silly testEngine    { email: 'tmpvar@gmail.com',
+silly testEngine      url: 'http://github.com/tmpvar/jsdom/issues' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'http://github.com/tmpvar/jsdom/blob/master/LICENSE.txt' } ],
+silly testEngine   repositories: 
+silly testEngine    [ { type: 'git',
+silly testEngine        url: 'http://github.com/tmpvar/jsdom.git' } ],
+silly testEngine   implements: [ 'http://www.w3.org/TR/REC-DOM-Level-1' ],
+silly testEngine   dependencies: 
+silly testEngine    { htmlparser: '1.x',
+silly testEngine      request: '2.x',
+silly testEngine      cssom: '0.2.x',
+silly testEngine      contextify: '0.0.x' },
+silly testEngine   devDependencies: 
+silly testEngine    { nodeunit: '>=0.5.x',
+silly testEngine      'console.log': '*',
+silly testEngine      optimist: '*' },
+silly testEngine   engines: { node: '>=0.1.9' },
+silly testEngine   directories: { lib: './lib/jsdom' },
+silly testEngine   main: './lib/jsdom',
+silly testEngine   _id: 'jsdom@0.2.10',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/jsdom/package.json
+verbose loadDefaults jsdom@0.2.10
+silly testEngine { name: 'htmlparser',
+silly testEngine   description: 'Forgiving HTML/XML/RSS Parser in JS for *both* Node and Browsers',
+silly testEngine   version: '1.7.4',
+silly testEngine   author: 
+silly testEngine    { name: 'Chris Winberry',
+silly testEngine      email: 'chris@winberry.net' },
+silly testEngine   contributors: [],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/tautologistics/node-htmlparser.git' },
+silly testEngine   keywords: [ 'html', 'xml', 'rss', 'parser' ],
+silly testEngine   directories: { lib: './lib/' },
+silly testEngine   main: './lib/htmlparser',
+silly testEngine   homepage: 'http://github.com/tautologistics/node-htmlparser',
+silly testEngine   bugs: 
+silly testEngine    { email: 'chris@winberry.net',
+silly testEngine      url: 'http://github.com/tautologistics/node-htmlparser/issues' },
+silly testEngine   os: [ 'linux', 'darwin', 'freebsd', 'win32' ],
+silly testEngine   engines: { node: '>=0.1.33' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'http://github.com/tautologistics/node-htmlparser/raw/master/LICENSE' } ],
+silly testEngine   _id: 'htmlparser@1.7.4',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/htmlparser/package.json
+verbose loadDefaults htmlparser@1.7.4
+silly testEngine { name: 'stylus',
+silly testEngine   description: 'Robust, expressive, and feature-rich CSS superset',
+silly testEngine   version: '0.22.6',
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca' },
+silly testEngine   keywords: 
+silly testEngine    [ 'css',
+silly testEngine      'parser',
+silly testEngine      'style',
+silly testEngine      'stylesheets',
+silly testEngine      'jade',
+silly testEngine      'language' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/learnboost/stylus.git' },
+silly testEngine   main: './index.js',
+silly testEngine   engines: { node: '> 0.4.x < 0.7.0' },
+silly testEngine   bin: { stylus: './bin/stylus' },
+silly testEngine   scripts: { prepublish: 'npm prune' },
+silly testEngine   dependencies: { cssom: '0.2.1', growl: '1.1.0', mkdirp: '0.0.7' },
+silly testEngine   _id: 'stylus@0.22.6',
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/stylus/package.json
+verbose loadDefaults stylus@0.22.6
+silly testEngine { name: 'request',
+silly testEngine   description: 'Simplified HTTP request client.',
+silly testEngine   tags: [ 'http', 'simple', 'util', 'utility' ],
+silly testEngine   version: '2.9.100',
+silly testEngine   author: 
+silly testEngine    { name: 'Mikeal Rogers',
+silly testEngine      email: 'mikeal.rogers@gmail.com' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/mikeal/request.git' },
+silly testEngine   bugs: { url: 'http://github.com/mikeal/request/issues' },
+silly testEngine   engines: [ 'node >= 0.3.6', node: ' >= 0.3.6' ],
+silly testEngine   main: './main',
+silly testEngine   scripts: { test: 'bash tests/run.sh' },
+silly testEngine   _id: 'request@2.9.100',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/request/package.json
+verbose loadDefaults request@2.9.100
+silly testEngine { name: 'cssom',
+silly testEngine   description: 'CSS Object Model implementation and CSS parser',
+silly testEngine   keywords: [ 'CSS', 'CSSOM', 'parser', 'styleSheet' ],
+silly testEngine   version: '0.2.2',
+silly testEngine   homepage: 'https://github.com/NV/CSSOM',
+silly testEngine   author: { name: 'Nikita Vasilyev', email: 'me@elv1s.ru' },
+silly testEngine   repository: { type: 'git', url: 'git://github.com/NV/CSSOM.git' },
+silly testEngine   bugs: { url: 'https://github.com/NV/CSSOM/issues' },
+silly testEngine   directories: { lib: './lib' },
+silly testEngine   main: './lib/index.js',
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   devDependencies: { jake: '0.2.x' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'http://creativecommons.org/licenses/MIT/' } ],
+silly testEngine   _id: 'cssom@0.2.2',
+silly testEngine   dependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/cssom/package.json
+verbose loadDefaults cssom@0.2.2
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/home/user/Desktop/node/node_modules/contextify/package.json',
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+silly testEngine { author: 
+silly testEngine    { name: 'Brian McDaniel',
+silly testEngine      email: 'brianmcd05@gmail.com' },
+silly testEngine   name: 'contextify',
+silly testEngine   description: 'Turn an object into a persistent execution context.',
+silly testEngine   keywords: [ 'context', 'vm' ],
+silly testEngine   version: '0.0.7',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/brianmcd/contextify.git' },
+silly testEngine   main: './lib/contextify.js',
+silly testEngine   directories: { lib: './lib' },
+silly testEngine   engines: { node: '>=0.4.0' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'http://github.com/brianmcd/contextify/blob/master/LICENSE.txt' } ],
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: { nodeunit: '>=0.5.x' },
+silly testEngine   _id: 'contextify@0.0.7',
+silly testEngine   scripts: { preinstall: 'node-waf clean || true; node-waf configure build' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/user/Desktop/node/node_modules/contextify/package.json
+verbose loadDefaults contextify@0.0.7
+verbose from cache /home/user/Desktop/node/package.json
+verbose into /home/user/Desktop/node [ 'fs' ]
+verbose cache add fs
+verbose cache add [ 'fs', null ]
+silly cache add: name, spec, args [ undefined, 'fs', [ 'fs', null ] ]
+verbose parsed url { pathname: 'fs', href: 'fs' }
+info addNamed [ 'fs', '' ]
+verbose addNamed [ null, '' ]
+verbose GET fs
+verbose raw, before any munging fs
+verbose url resolving [ 'http://registry.npmjs.org/', './fs' ]
+verbose url resolved http://registry.npmjs.org/fs
+silly get cb [ 404,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     date: 'Sat, 21 Jan 2012 20:48:26 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '52',
+silly get cb     'cache-control': 'must-revalidate' } ]
+ERR! 404 'fs' is not in the npm registry.
+ERR! 404 You could maybe bug the author to publish it
+ERR! 404 Note that you can also install from a tarball or folder.
+ERR! 
+ERR! System Linux 2.6.32-37-generic
+ERR! command "node" "/usr/local/bin/npm" "install" "fs"
+ERR! cwd /home/user/Desktop/node
+ERR! node -v v0.4.7
+ERR! npm -v 1.0.106
+ERR! code E404
+verbose exit [ 1, true ]

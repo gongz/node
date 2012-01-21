@@ -5,35 +5,23 @@ body {
     padding: 0;
     vertical-align: baseline;
     font-size: 62.5%;
-
+}
+nav
+{
+	position: fixed;
+}
+li
+{	
+	display: inline;
+	list-style-type: none;
+	font-size: 1.5em;
+	padding: 1em;
 }
 
-a {
-  color: #00B7FF;
+.page-width {
+    margin: auto;
+    max-width: 1200px;
+    min-width: 800px;
+    width: 80%;
 }
 
-li, ol, ul {
-    list-style: none outside none;
-    padding: 0;
-}
-
-nav#access {
-    float: left;
-    font-size: 2em;
-    text-transform: uppercase;
-    width: 160px;
-    font-weight: bold;
-    font-family: Arial Black;
-}
-nav#access .menu li {
-    margin: 0 0 0.2em;
-}
-nav#access .menu a {
-    -moz-transition: all 0.3s ease 0s;
-    color: #D6D6D6;
-    display: block;
-}
-nav#access .menu a:hover, nav#access li.current-menu-item a {
-    color: #222222;
-    text-decoration: none;
-}

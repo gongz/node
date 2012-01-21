@@ -1,10 +1,17 @@
-div(data-role='page')
-    header(data-role='header')
-        h1= title
-    div(data-role='content')      
-            ul(data-role='listview')                
-                - items.forEach(function(item){
-                    //create li
-                    li                        
-                        h1= item['word']
-                - })
+!!! 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+        .page-width
+          nav
+            ul                
+            - items.forEach(function(item){
+                li= item['word']
+            - })
+            hr
+
+
+

@@ -6,41 +6,50 @@
 var request = require('request'),
 	url = require('url'),
 	jsdom = require('jsdom'),
-	express = require('express');
+	express = require('express'),
+	fs = require('fs');
+;
 
-var maxNumber = 6;
+var maxNumber = 8;
 var reserveKey = ["abstract","boolean","break","byte","case","catch","char","class","const","continue","debugger","default",
 "delete","do","double","else","enum","export","extends","final","finally","float","for","function","goto","if","implements",
 "import","in","instanceof","int","interface","long","native","new","package","private","protected","public","return",
 "short","static","super","switch","synchronized","this","throw","throws","transient","try","typeof","var","void","volatile",
-"while","with","true","false"];
+"while","with","true","false","listener","window","load","event","timers","url","nav","img","link","page","div","html","main","http"];
 var reserveWord = ["aboard","about","above","across","after","against","along","amid","among","anti","around","as","at",
 "before","behind","below","beneath","beside","besides","between","beyond","but","by","concerning","considering","despite",
 "down","during","except","excepting","excluding","following","for","from","in","inside","into","like","minus","near",
 "of","off","on","onto","opposite","outside","over","past","per","plus","regarding","round","save","since","than","through",
 "to","toward","towards","under","underneath","unlike","until","up","upon","versus","via","with","within","without","not",
-"the"];
+"the","more","get","and"];
 
 var sortOrder = function(x, y) {
 	return y.count - x.count
 };
-
-var output = [];//sort output
 
 
 var app = express.createServer(function (req, res) {
 	requestedUri = url.parse(req.url).pathname;
 	requestedUri = requestedUri.substring(1);
 	console.log("Got request for " +requestedUri);
-  	if (!requestedUri.match('^http')) {
-		console.log("requested URI is not a valid URL!  Dropping request...");
-		res.writeHead(400, {"Content-Type": "text/html"})
-		res.end("Invalid url");
-  	} else {
+	if(requestedUri.match('.css$')){
+		var filePath = './public' + req.url;
+		console.log("Got request for " +filePath);
+		fs.readFile(filePath, function(error, content) {
+			res.writeHead(200, { 'Content-Type': 'text/css' });
+            		res.end(content, 'utf-8');  
+		});
+	} else if (!requestedUri.match('^http')) {
+		//console.log("requested URI is not a valid URL!  Dropping request...");
+		res.writeHead(500, {"Content-Type": "text/html"})
+		res.write();
+		res.end("Invalid url");  	
+	} else {
 		request({uri: requestedUri}, function (error, response, body) {
 	      	//console.log("Fetched " +someUri+ " OK!");
+		var output = [];//sort output
 		var hashtable = {};
-		var result = this;
+		var result = this;		
         	result.items = new Array();
 	
 		jsdom.env({
@@ -98,14 +107,14 @@ var app = express.createServer(function (req, res) {
 		}				
 		//console.log(result); //debug		
 		res.render('bar', {
-				title: " ",		          
+				title: 'bar',		          
 				items: result.items
 		       });
 		});   	      
 	    });	
     }
 });
-app.listen(process.env.PORT);
+app.listen(process.env.PORT||8080);
 
 // Configuration
 
