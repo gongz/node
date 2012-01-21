@@ -11,6 +11,7 @@ var request = require('request'),
 ;
 
 var maxNumber = 8;
+var access = 0;
 var reserveKey = ["abstract","boolean","break","byte","case","catch","char","class","const","continue","debugger","default",
 "delete","do","double","else","enum","export","extends","final","finally","float","for","function","goto","if","implements",
 "import","in","instanceof","int","interface","long","native","new","package","private","protected","public","return",
@@ -26,6 +27,14 @@ var reserveWord = ["aboard","about","above","across","after","against","along","
 var sortOrder = function(x, y) {
 	return y.count - x.count
 };
+
+
+function getPage (someUri, callback) {
+  request({uri: someUri}, function (error, response, body) {
+      console.log("Fetched " +someUri+ " OK!");
+      callback(body);
+    });
+}
 
 var app = express.createServer(function (req, res) {
 	requestedUri = url.parse(req.url).pathname;
@@ -45,73 +54,82 @@ var app = express.createServer(function (req, res) {
 		res.write();
 		res.end("Invalid url");  	
 	} else {
-		//handle request to http websites
-		request({uri: requestedUri}, function (error, response, body) {
-	      	//console.log("Fetched " +someUri+ " OK!");
-		var output = [];//sort output
-		var hashtable = {};
-		var result = this;		
-        	result.items = new Array();
-		jsdom.env({
-				html: body,
-				scripts: ['http://code.jquery.com/jquery-1.6.min.js']
-			}, function(err, window){
-		var $ = window.jQuery; 
-		var text = $('body').text();
+		if(!access){ 
+			//handle request to http websites
+			request({uri: requestedUri}, function (error, response, body) {
+		      	//console.log("Fetched " +someUri+ " OK!");
+			var output = [];//sort output
+			var hashtable = {};
+			var result = this;		
+			result.items = new Array();
+			jsdom.env({
+					html: body,
+					scripts: ['http://code.jquery.com/jquery-1.6.min.js']
+				}, function(err, window){
+			var $ = window.jQuery; 
+			var text = $('body').text();
 
-		text = text.replace(/([a-z])([A-Z])/g, '$1 $2');
-		//add space between lower case and upper case
+			text = text.replace(/([a-z])([A-Z])/g, '$1 $2');
+			//add space between lower case and upper case
 	
-		text = text.toLowerCase();
+			text = text.toLowerCase();
 
-		text = text.replace(/[\W]/g, ' ');
+			text = text.replace(/[\W]/g, ' ');
 			
-		//replace non words			
-		text = text.replace(/\s{2,}/g, ' ');
+			//replace non words			
+			text = text.replace(/\s{2,}/g, ' ');
 
-		//replace mutispace			
-		text = text.replace(/\s+$/g, '');
+			//replace mutispace			
+			text = text.replace(/\s+$/g, '');
 			
-		//replace end space			
-		text = text.split(/\s+/);
+			//replace end space			
+			text = text.split(/\s+/);
 
-		//split and save into hashtable if the word length is between 2 and 50			
-		//console.log(text); //debug
-		for ( var i = 0, textlen = text.length, s; i < textlen; ++i) {
-			s = text[i];				  
-			if(s.length>2 && s.length <50)
-				hashtable[s] = (hashtable[s] || 0) + 1;	
-		}
-		//set resevered word and keyword in javascript to negative
-		for ( var i = 0, len = reserveKey.length, s; i < len; ++i) {
-			s = reserveKey[i];
-			if(hashtable[s]) hashtable[s]= -1;	
-		}
-		for ( var i = 0, len = reserveWord.length, s; i < len; ++i) {
-			s = reserveWord[i];
-			if(hashtable[s]) hashtable[s]= -1;
-		}
-		//put count >=1 element into array to reduce the number in sorting
-		for(var i in hashtable){
-			if(hashtable[i]>=1)
-				output.push({"key" : i, "count" : hashtable[i]});
-		}
-		//sort
-		output.sort(sortOrder);
+			//split and save into hashtable if the word length is between 2 and 50			
+			//console.log(text); //debug
+			for ( var i = 0, textlen = text.length, s; i < textlen; ++i) {
+				s = text[i];				  
+				if(s.length>2 && s.length <50)
+					hashtable[s] = (hashtable[s] || 0) + 1;	
+			}
+			//set resevered word and keyword in javascript to negative
+			for ( var i = 0, len = reserveKey.length, s; i < len; ++i) {
+				s = reserveKey[i];
+				if(hashtable[s]) hashtable[s]= -1;	
+			}
+			for ( var i = 0, len = reserveWord.length, s; i < len; ++i) {
+				s = reserveWord[i];
+				if(hashtable[s]) hashtable[s]= -1;
+			}
+			//put count >=1 element into array to reduce the number in sorting
+			for(var i in hashtable){
+				if(hashtable[i]>=1)
+					output.push({"key" : i, "count" : hashtable[i]});
+			}
+			//sort
+			output.sort(sortOrder);
 	
-		//generate result 	
-		for ( var i = 0; i < maxNumber; ++i) {
-			result.items[i] = {
-		            word: output[i].key
-		        };
-		}				
-		//console.log(result); //debug		
-		res.render('bar', {
-				title: 'bar',		          
-				items: result.items
-		       		});
-			});   	      
-	    	});
+			//generate result 	
+			for ( var i = 0; i < maxNumber; ++i) {
+				result.items[i] = {
+				    word: output[i].key
+				};
+			}				
+			//console.log(result); //debug	
+				
+			res.render('bar', {
+					title: 'bar',		          
+					items: result.items
+			       		});
+				});   	      
+		    	});
+		}else{
+			getPage(requestedUri, function(body) {
+			res.writeHead(200, {"Content-Type": "text/html"}),
+			rese.write(body),
+			res.end("Done")
+   			})		
+		}
     	}
 });
 app.listen(process.env.PORT||8080);
