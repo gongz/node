@@ -38,12 +38,18 @@ function getPage (someUri, callback) {
 
 var app = express.createServer(function (req, res) {
 	requestedUri = url.parse(req.url).pathname;
-	requestedUri = requestedUri.substring(1);
 	console.log("Got request for " +requestedUri);
-	if(requestedUri.match('stylesheets/style.css')){
+	requestedUri = requestedUri.substring(1);
+	console.log("Parsed to " +requestedUri);
+	if(requestedUri.length == 0)
+	{
+		console.log("Got request for root");
+		res.render('root', {title: 'root' });
+	}
+	else if(requestedUri.match('stylesheets/style.css')){
 		//handle css file
 		var filePath = './public' + req.url;
-		//console.log("Got request for " +filePath);
+		console.log("Got request for " +filePath);
 		fs.readFile(filePath, function(error, content) {
 			res.writeHead(200, { 'Content-Type': 'text/css' });
             		res.end(content, 'utf-8');  
@@ -125,13 +131,14 @@ var app = express.createServer(function (req, res) {
 		    	});
     	}
 });
-app.listen(process.env.PORT||8080);
+
 
 // Configuration
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.set('view options',{layout:true});
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -147,4 +154,6 @@ app.configure('production', function(){
 });
 
 
+
+app.listen(process.env.PORT||8080);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
