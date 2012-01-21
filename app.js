@@ -11,7 +11,7 @@ var request = require('request'),
 ;
 
 var maxNumber = 8;
-var access = 0;
+
 var reserveKey = ["abstract","boolean","break","byte","case","catch","char","class","const","continue","debugger","default",
 "delete","do","double","else","enum","export","extends","final","finally","float","for","function","goto","if","implements",
 "import","in","instanceof","int","interface","long","native","new","package","private","protected","public","return",
@@ -40,7 +40,7 @@ var app = express.createServer(function (req, res) {
 	requestedUri = url.parse(req.url).pathname;
 	requestedUri = requestedUri.substring(1);
 	console.log("Got request for " +requestedUri);
-	if(requestedUri.match('.css$')){
+	if(requestedUri.match('stylesheets/style.css')){
 		//handle css file
 		var filePath = './public' + req.url;
 		//console.log("Got request for " +filePath);
@@ -48,13 +48,13 @@ var app = express.createServer(function (req, res) {
 			res.writeHead(200, { 'Content-Type': 'text/css' });
             		res.end(content, 'utf-8');  
 		});
-	} else if (!requestedUri.match('^http')) {
+	} else if (!requestedUri.match('^http') && !access) {
 		//handle invalid url
 		res.writeHead(500, {"Content-Type": "text/html"})
 		res.write();
 		res.end("Invalid url");  	
 	} else {
-		if(!access){ 
+		 
 			//handle request to http websites
 			request({uri: requestedUri}, function (error, response, body) {
 		      	//console.log("Fetched " +someUri+ " OK!");
@@ -123,13 +123,6 @@ var app = express.createServer(function (req, res) {
 			       		});
 				});   	      
 		    	});
-		}else{
-			getPage(requestedUri, function(body) {
-			res.writeHead(200, {"Content-Type": "text/html"}),
-			rese.write(body),
-			res.end("Done")
-   			})		
-		}
     	}
 });
 app.listen(process.env.PORT||8080);
