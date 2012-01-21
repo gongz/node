@@ -3,8 +3,10 @@
 	"version": "0.0.1",
 	"dependencies": {
 		"request": "",
-		"jsdom" : "",
+		"jsdom" : ">=0.1.20",
 		"express": "2.5.5",
-		 "jade": ">= 0.0.1"
+		"jade": ">= 0.0.1",       		
+		"cssom"      : "0.2.x"
+       		
 	}
 }
