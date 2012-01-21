@@ -28,14 +28,6 @@ var sortOrder = function(x, y) {
 	return y.count - x.count
 };
 
-
-function getPage (someUri, callback) {
-  request({uri: someUri}, function (error, response, body) {
-      console.log("Fetched " +someUri+ " OK!");
-      callback(body);
-    });
-}
-
 var app = express.createServer(function (req, res) {
 	requestedUri = url.parse(req.url).pathname;
 	console.log("Got request for " +requestedUri);
@@ -137,7 +129,8 @@ var app = express.createServer(function (req, res) {
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');  
+  app.set('view engine', 'jade');
+  app.set('view option',{layout:false});  
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
