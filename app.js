@@ -27,31 +27,31 @@ var sortOrder = function(x, y) {
 	return y.count - x.count
 };
 
-
 var app = express.createServer(function (req, res) {
 	requestedUri = url.parse(req.url).pathname;
 	requestedUri = requestedUri.substring(1);
 	console.log("Got request for " +requestedUri);
 	if(requestedUri.match('.css$')){
+		//handle css file
 		var filePath = './public' + req.url;
-		console.log("Got request for " +filePath);
+		//console.log("Got request for " +filePath);
 		fs.readFile(filePath, function(error, content) {
 			res.writeHead(200, { 'Content-Type': 'text/css' });
             		res.end(content, 'utf-8');  
 		});
 	} else if (!requestedUri.match('^http')) {
-		//console.log("requested URI is not a valid URL!  Dropping request...");
+		//handle invalid url
 		res.writeHead(500, {"Content-Type": "text/html"})
 		res.write();
 		res.end("Invalid url");  	
 	} else {
+		//handle request to http websites
 		request({uri: requestedUri}, function (error, response, body) {
 	      	//console.log("Fetched " +someUri+ " OK!");
 		var output = [];//sort output
 		var hashtable = {};
 		var result = this;		
         	result.items = new Array();
-	
 		jsdom.env({
 				html: body,
 				scripts: ['http://code.jquery.com/jquery-1.6.min.js']
@@ -109,10 +109,10 @@ var app = express.createServer(function (req, res) {
 		res.render('bar', {
 				title: 'bar',		          
 				items: result.items
-		       });
-		});   	      
-	    });	
-    }
+		       		});
+			});   	      
+	    	});
+    	}
 });
 app.listen(process.env.PORT||8080);
 
@@ -134,17 +134,6 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
-
-
-
-
-function getPage(someUri, callback) {
-  request({uri: someUri}, function (error, response, body) {
-      //console.log("Fetched " +someUri+ " OK!");
-	
-      callback(body);
-    });
-}
 
 
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
