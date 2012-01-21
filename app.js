@@ -105,7 +105,7 @@ var app = express.createServer(function (req, res) {
 	    });	
     }
 });
-app.listen(5040);
+app.listen(process.env.PORT);
 
 // Configuration
 
