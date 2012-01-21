@@ -5,8 +5,9 @@
 		"request": "",
 		"jsdom" : ">=0.1.20",
 		"express": "2.5.5",
-		"jade": ">= 0.0.1",       		
-		"cssom"      : "0.2.x"
-       		
+		 "jade": ">= 0.0.1",
+		"htmlparser" : "1.x",       		
+       		"cssom"      : "0.2.x",
+       		"contextify" : "0.0.x"
 	}
 }
