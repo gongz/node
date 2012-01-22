@@ -111,12 +111,12 @@ var app = express.createServer(function (req, res) {
 				//generate result 	
 				for ( var i = 0; i < maxNumber; ++i) {
 					result.items[i] = {
-					    word: output[i].key
+					    word: output[i].key + ' |'
 					};
 				}				
 				//console.log(result); //debug	
 				
-				res.render('bar', {
+				res.render('simple', {
 						title: 'bar',		          
 						items: result.items
 				       		});
