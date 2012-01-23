@@ -1,0 +1,27 @@
+html{
+	height: 100%;
+	font-size: 62.5%;
+}
+
+body {
+	background: #E2E2E2;
+	font-size: 1.5em;
+	height: 100%;
+	
+}
+
+#bar{	
+	width:100%;	
+}
+
+
+.facebook_button {
+	display: -moz-inline-block;
+	display: inline-block;
+	padding: 1px 15px 1px 1px;
+	height: 16px;
+	background:
+		url(https://s3.amazonaws.com/sepersonal_test/images/facebook_icon.png)
+		no-repeat top right;
+}
+

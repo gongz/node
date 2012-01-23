@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script src="js/lib/jquery-1.4.2.js"></script>
+	<script type="text/javascript">	
+	function onRequest(url, sender, res) {			
+			jQuery.get("http://gzgz.herokuapp.com/"+url, function(text){
+				text = text.replace(/[\W]{1,2}\w{1,4}[\W]/g, ' ');
+				text = text.replace(/\s{2,}/g, ' ');
+				text = text.replace(/\s+$/g, '');
+				chrome.experimental.infobars.show({
+					tabId : sender.tab.id,
+					path : "infobar.html" +"#"+text+"##"+url
+				});
+			});
+			res();
+		};
+		chrome.extension.onRequest.addListener(onRequest);
+	</script>
+</body>
+</html>

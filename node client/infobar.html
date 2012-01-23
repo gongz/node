@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheet/bar.css" />
+</head>
+<body>
+	<table id="bar">
+		<tr>
+			<td>
+				<p id="content"></p>
+			</td>
+			<td>
+				<a class="facebook_button" onclick="return share()"></a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+<script>
+		//parse parameter got from background
+		var para = window.location.hash.substring(1);
+		var text = para.substring(0,para.indexOf('##'));
+		var url = para.substring(para.indexOf('##')+2);
+		//fill the content with text
+		document.getElementById("content").innerHTML = text;
+		
+		//button click respond
+		function share() {
+			window.open('http://www.facebook.com/sharer.php?u='+url);
+			return false;
+		}
+</script>
