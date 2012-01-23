@@ -1,6 +1,6 @@
 Word frequency counter based on nodejs server and chrome info bar extension
 Server location: http://gzgz.herokuapp.com
-
+Chrome crx file at /node_client/node_client.crx
 Word frequency bar
 
 (Language/Platform: Javascript jQuery Nodejs Jade CSS HTML)
